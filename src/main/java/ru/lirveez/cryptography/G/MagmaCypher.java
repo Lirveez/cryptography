@@ -84,8 +84,8 @@ public class MagmaCypher implements CypherInterface {
         return (long) c1 << 48 | (long) c2 << 32 | (long) c3 << 16 | (long) c4;
     }
 
-    private char[] getCharsFromLong(long itterationResult) {
-        long[] thirtyTwoBits = splitSixtyFourBit(itterationResult);
+    private char[] getCharsFromLong(long iterationResult) {
+        long[] thirtyTwoBits = splitSixtyFourBit(iterationResult);
         long[] leftPart = splitThirtyTwoBit(thirtyTwoBits[0]);
         long[] rightPart = splitThirtyTwoBit(thirtyTwoBits[1]);
         char[] result = new char[4];
