@@ -1,8 +1,6 @@
 package ru.lirveez.cryptography.H;
 
 import lombok.RequiredArgsConstructor;
-import lombok.val;
-import ru.lirveez.cryptography.CypherInterface;
 
 import java.math.BigInteger;
 
