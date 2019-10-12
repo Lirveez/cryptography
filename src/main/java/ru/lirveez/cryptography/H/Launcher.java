@@ -6,6 +6,9 @@ import lombok.val;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 
+import static ru.lirveez.cryptography.BigIntegerUtil.fromBigInt;
+import static ru.lirveez.cryptography.BigIntegerUtil.rawText;
+
 @Slf4j
 public class Launcher {
 
@@ -27,18 +30,5 @@ public class Launcher {
         log.info("Decoded: {}", decoded.toString(2));
         val str = fromBigInt(decoded);
         log.info("String is {}", str);
-    }
-
-    private static BigInteger rawText(String text) {
-        val bytes = text.getBytes(Charset.defaultCharset());
-        var bi = new BigInteger("0");
-        for (val b : bytes) {
-            val temp = BigInteger.valueOf(Byte.toUnsignedLong(b));
-            bi = bi.shiftLeft(8).or(temp);
-        }
-        return bi;
-    }
-    private static String fromBigInt(BigInteger bi) {
-        return new String(bi.toByteArray(), Charset.defaultCharset());
     }
 }
