@@ -5,7 +5,7 @@ public class Alphabet {
     public static int lastUpperLetterCode = 'Я';
     public static int firstLetterCode = 'а';
     public static int lastLetterCode = 'я';
-    public static int size = lastLetterCode - firstLetterCode;
+    public static int size = lastLetterCode - firstLetterCode + 1;
 
     public static char[] upperAlphabetRU = {
             'А', 'Б', 'В',
@@ -35,12 +35,16 @@ public class Alphabet {
 
     public static int getLetterPosition(int letterCode) {
         char letter = (char) letterCode;
-        for (int i = 0; i < upperAlphabetRU.length; i++)
-            if (upperAlphabetRU[i] == letter)
+        for (int i = 0; i < upperAlphabetRU.length; i++) {
+            if (upperAlphabetRU[i] == letter) {
                 return i + 1;
-        for (int i = 0; i < lowerAlphabetRU.length; i++)
-            if (lowerAlphabetRU[i] == letter)
+            }
+        }
+        for (int i = 0; i < lowerAlphabetRU.length; i++) {
+            if (lowerAlphabetRU[i] == letter) {
                 return i + 33;
+            }
+        }
         return (int) letter;
     }
 
@@ -51,4 +55,15 @@ public class Alphabet {
             return upperAlphabetRU[position - 1];
         return ' ';
     }
+
+    public static boolean isUpper(int letterCode) {
+        char letter = (char) letterCode;
+        for (char c : upperAlphabetRU) {
+            if (c == letter) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

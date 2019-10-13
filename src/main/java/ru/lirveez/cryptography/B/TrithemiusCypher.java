@@ -30,19 +30,19 @@ public class TrithemiusCypher implements CypherInterface {
     private Integer getAliasLetterCode(Integer code, Integer position) {
         if (code >= firstLetterCode
                 && code <= lastLetterCode)
-            return cypherTable[firstLetterCode - code][position % (size + 1)];
+            return cypherTable[firstLetterCode - code][position % size];
         else if (code >= firstUpperLetterCode
                 && code <= lastUpperLetterCode)
-            return cypherUpperTable[firstLetterCode - code][position % (size + 1)];
+            return cypherUpperTable[firstLetterCode - code][position % size];
         return code;
     }
 
     private int[][] initCypherTable(int start) {
-        int[][] table = new int[size + 1][size + 1];
-        for (int i = 0; i < size + 1; i++)
-            for (int j = i; j < i + size + 1; j++)
-                if (j > size)
-                    table[i][j - i] = start - size - 1 + j;
+        int[][] table = new int[size][size];
+        for (int i = 0; i < size; i++)
+            for (int j = i; j < i + size; j++)
+                if (j > size - 1)
+                    table[i][j - i] = start - size - 2 + j;
                 else
                     table[i][j - i] = start + j;
         return table;
