@@ -11,7 +11,7 @@ public class BigIntegerUtil {
 
     public static BigInteger rawText(String text) {
         val bytes = text.getBytes(Charset.defaultCharset());
-        var bi = new BigInteger("0");
+        var bi = BigInteger.ZERO;
         for (val b : bytes) {
             val temp = BigInteger.valueOf(Byte.toUnsignedLong(b));
             bi = bi.shiftLeft(8).or(temp);
