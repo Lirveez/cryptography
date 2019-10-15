@@ -2,6 +2,7 @@ package ru.lirveez.cryptography.A;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import ru.lirveez.cryptography.CypherInterface;
 
 import java.util.stream.Collectors;
@@ -45,5 +46,37 @@ public class CaesarCypher implements CypherInterface {
         } else {
             return firstLetterCode + newPosition;
         }
+    }
+
+    class B {
+
+    }
+
+//    static {
+//        class C{
+//
+//        }
+//        log.info("Class C {}", C.class);
+//    }
+
+    public static void main(String[] args) {
+//        class A {
+//
+//        }
+//
+//        log.info("Class A {}", A.class);
+//        log.info("Class B {}", B.class);
+
+
+        val offset = 10;
+        val caesarCypher = new CaesarCypher(offset);
+        var text = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
+        log.info("Encoding: {}", text);
+        log.info("Offset: {}", offset);
+
+        var encoded = caesarCypher.encode(text);
+
+        log.info("Зашифровано: {}", encoded);
+        log.info("Расшифровано: {}", caesarCypher.decode(encoded));
     }
 }
